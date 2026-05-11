@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 from dotenv import load_dotenv
 
 load_dotenv() # Load environment variables from .env file
@@ -7,9 +6,9 @@ load_dotenv() # Load environment variables from .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = '9y)98hvjoy#tf0e1a(k@tyg6cd0kv4h37^5uw-90%*g=$3rdds'
 
-DEBUG = os.getenv('DEBUG') == 'True'
+DEBUG = 'False'
 
 ALLOWED_HOSTS = [
     'romil.pythonanywhere.com'
