@@ -103,7 +103,7 @@ WriteSphere/
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Blog_Django_Project.git
+git clone https://github.com/Romil2601/Blog_Django_Project.git
 ```
 
 ---
