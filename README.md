@@ -182,25 +182,6 @@ Project deployed using:
 
 ---
 
-# 📸 Screenshots
-
-## Home Page
-- Modern Blog Cards
-- Pagination
-- Search Bar
-
-## Profile Page
-- Circular Profile Images
-- Follow System
-- User Posts
-
-## Blog Detail Page
-- Like System
-- Comments Section
-- Follow Author
-
----
-
 # 🔒 Environment Variables
 
 Example `.env`:
