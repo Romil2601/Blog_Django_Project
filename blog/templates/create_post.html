@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <!-- Header -->
+                <div class="bg-dark text-white p-4">
+                    <h2 class="fw-bold mb-1">
+                        Create Blog Post
+                    </h2>
+
+                    <p class="mb-0 text-light">
+                        Share your thoughts, ideas, and stories with the community.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <div class="card-body p-5">
+
+                    <form method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <!-- Title -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Blog Title
+                            </label>
+
+                            {{ form.title }}
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Category
+                            </label>
+
+                            {{ form.category }}
+                        </div>
+
+                        <!-- Cover Image -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Cover Image
+                            </label>
+
+                            {{ form.cover_image }}
+                        </div>
+
+                        <!-- Content -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Blog Content
+                            </label>
+
+                            {{ form.content }}
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-3">
+
+                            <button type="submit"
+                                    class="btn btn-success px-4 rounded-pill">
+                                Publish Post
+                            </button>
+
+                            <a href="{% url 'home' %}"
+                               class="btn btn-outline-dark px-4 rounded-pill">
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Styling -->
+<style>
+
+input,
+select,
+textarea{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color: #198754;
+    box-shadow: 0 0 8px rgba(25,135,84,0.25);
+}
+
+textarea{
+    min-height: 180px;
+    resize: vertical;
+}
+
+</style>
+
+{% endblock %}

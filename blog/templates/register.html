@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-lg-6 col-md-8">
+
+            <!-- Register Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <!-- Header -->
+                <div class="bg-success text-white text-center p-4">
+
+                    <h2 class="fw-bold mb-2">
+                        Create Account
+                    </h2>
+
+                    <p class="mb-0">
+                        Join WriteSphere and start sharing your stories.
+                    </p>
+
+                </div>
+
+                <!-- Form Body -->
+                <div class="card-body p-5">
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        <!-- Username -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Username
+                            </label>
+
+                            {{ form.username }}
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Email Address
+                            </label>
+
+                            {{ form.email }}
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Password
+                            </label>
+
+                            {{ form.password1 }}
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Confirm Password
+                            </label>
+
+                            {{ form.password2 }}
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mb-3">
+
+                            <button type="submit"
+                                    class="btn btn-success rounded-pill py-2 fw-semibold">
+                                Register
+                            </button>
+
+                        </div>
+
+                        <!-- Login Link -->
+                        <div class="text-center">
+
+                            <p class="text-muted mb-0">
+                                Already have an account?
+
+                                <a href="{% url 'login' %}"
+                                   class="text-success fw-semibold text-decoration-none">
+                                    Login
+                                </a>
+
+                            </p>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Custom Styling -->
+<style>
+
+input{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus{
+    border-color: #198754;
+    box-shadow: 0 0 8px rgba(25,135,84,0.25);
+}
+
+.card{
+    backdrop-filter: blur(10px);
+}
+
+</style>
+
+{% endblock %}

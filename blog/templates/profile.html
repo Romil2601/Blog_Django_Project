@@ -1,0 +1,93 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container py-5">
+  <div class="card border-0 shadow-lg rounded-4 p-5">
+    <div class="text-center">
+      <div class="text-center mb-4">
+        <img
+          src="{{ profile.profile_image.url }}"
+          alt="Profile Image"
+          style="
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          "
+        />
+      </div>
+
+      <h2 class="fw-bold">{{ profile_user.username }}</h2>
+
+      <p class="text-muted">{{ profile.bio }}</p>
+    </div>
+
+    <hr class="my-5" />
+
+    <h3 class="fw-bold mb-4">Posts by {{ profile_user.username }}</h3>
+
+    <div class="d-flex justify-content-center gap-4 my-3">
+      <div>
+        <h5 class="fw-bold mb-0">{{ followers_count }}</h5>
+
+        <small class="text-muted"> Followers </small>
+      </div>
+
+      <div>
+        <h5 class="fw-bold mb-0">{{ following_count }}</h5>
+
+        <small class="text-muted"> Following </small>
+      </div>
+    </div>
+    {% if user.is_authenticated and user != profile_user %}
+
+    <a
+      href="{% url 'follow_user' profile_user.username %}"
+      class="btn {% if is_following %}btn-dark{% else %}btn-primary{% endif %} rounded-pill px-1 w-20px"
+    >
+      {% if is_following %} Following {% else %} Follow {% endif %}
+    </a>
+
+    {% endif %} {% if user == profile_user %}
+
+    <a
+      href="{% url 'edit_profile' %}"
+      class="btn btn-dark rounded-pill px-4 mt-3"
+    >
+      Edit Profile
+    </a>
+
+    {% endif %}
+
+    <div class="row">
+      {% for post in posts %}
+
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm border-0 rounded-4">
+          <img
+            src="{{ post.cover_image.url }}"
+            class="card-img-top"
+            height="220"
+            style="object-fit: cover"
+          />
+
+          <div class="card-body">
+            <h5 class="fw-bold">{{ post.title }}</h5>
+
+            <a
+              href="{% url 'post_detail' post.id %}"
+              class="btn btn-dark rounded-pill"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

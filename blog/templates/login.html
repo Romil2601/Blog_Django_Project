@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-lg-5 col-md-7">
+
+            <!-- Login Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <!-- Header -->
+                <div class="bg-primary text-white text-center p-4">
+                    <h2 class="fw-bold mb-2">
+                        Welcome Back
+                    </h2>
+
+                    <p class="mb-0">
+                        Login to continue to WriteSphere
+                    </p>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-5">
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        <!-- Username -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Username
+                            </label>
+
+                            {{ form.username }}
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                Password
+                            </label>
+
+                            {{ form.password }}
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit"
+                                    class="btn btn-primary rounded-pill py-2 fw-semibold">
+                                Login
+                            </button>
+                        </div>
+
+                        <!-- Register Link -->
+                        <div class="text-center">
+                            <p class="text-muted mb-0">
+                                Don't have an account?
+                                <a href="{% url 'register' %}"
+                                   class="text-primary fw-semibold text-decoration-none">
+                                    Register
+                                </a>
+                            </p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Styling -->
+<style>
+
+input{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus{
+    border-color: #0d6efd;
+    box-shadow: 0 0 8px rgba(13,110,253,0.25);
+}
+
+.card{
+    backdrop-filter: blur(10px);
+}
+
+</style>
+
+{% endblock %}

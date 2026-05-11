@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-lg rounded-4">
+
+                <div class="card-body p-5">
+
+                    <h2 class="fw-bold mb-4 text-center">
+                        Edit Profile
+                    </h2>
+
+                    <form method="post"
+                          enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <!-- Profile Image -->
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Profile Photo
+                            </label>
+
+                            {{ form.profile_image }}
+
+                        </div>
+
+                        <!-- Bio -->
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Bio
+                            </label>
+
+                            {{ form.bio }}
+
+                        </div>
+
+                        <button class="btn btn-dark rounded-pill px-4">
+
+                            Update Profile
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+input,
+textarea{
+
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid #ced4da;
+    outline: none;
+}
+
+textarea{
+    min-height: 140px;
+}
+
+</style>
+
+{% endblock %}
